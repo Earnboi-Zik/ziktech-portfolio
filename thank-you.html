@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Thank you for contacting ZIKTECH." />
+
+    <title>Thank You | ZIKTECH</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .thank-you-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .thank-you-page::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: rgba(224, 24, 34, 0.12);
+        border-radius: 50%;
+        filter: blur(100px);
+        top: -200px;
+        right: -150px;
+      }
+
+      .thank-you-page::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: rgba(224, 24, 34, 0.08);
+        border-radius: 50%;
+        filter: blur(100px);
+        bottom: -200px;
+        left: -150px;
+      }
+
+      .thank-you-card {
+        width: 100%;
+        max-width: 650px;
+        text-align: center;
+        padding: 60px 40px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .success-icon {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(224, 24, 34, 0.12);
+        border: 1px solid rgba(224, 24, 34, 0.35);
+        border-radius: 50%;
+        color: var(--red);
+        font-size: 42px;
+      }
+
+      .thank-you-card h1 {
+        margin-bottom: 18px;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        color: var(--white);
+      }
+
+      .thank-you-card h1 span {
+        color: var(--red);
+      }
+
+      .thank-you-card p {
+        max-width: 520px;
+        margin: 0 auto 15px;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .thank-you-card .small-message {
+        margin-bottom: 35px;
+        font-size: 0.9rem;
+        color: var(--muted-dark);
+      }
+
+      .thank-you-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .thank-you-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 180px;
+        padding: 14px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s ease;
+      }
+
+      .thank-you-btn.primary {
+        background: var(--red);
+        color: var(--white);
+        border: 1px solid var(--red);
+      }
+
+      .thank-you-btn.primary:hover {
+        background: var(--red-dark);
+        border-color: var(--red-dark);
+        transform: translateY(-2px);
+      }
+
+      .thank-you-btn.secondary {
+        background: transparent;
+        color: var(--white);
+        border: 1px solid var(--border-light);
+      }
+
+      .thank-you-btn.secondary:hover {
+        border-color: var(--red);
+        color: var(--red);
+        transform: translateY(-2px);
+      }
+
+      .thank-you-brand {
+        margin-top: 40px;
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        color: var(--white);
+      }
+
+      .thank-you-brand span {
+        color: var(--red);
+      }
+
+      @media (max-width: 600px) {
+        .thank-you-card {
+          padding: 45px 25px;
+        }
+
+        .success-icon {
+          width: 75px;
+          height: 75px;
+          font-size: 34px;
+          margin-bottom: 25px;
+        }
+
+        .thank-you-buttons {
+          flex-direction: column;
+        }
+
+        .thank-you-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="thank-you-page">
+      <div class="thank-you-card">
+        <!-- Success Icon -->
+        <div class="success-icon">
+          <i class="bi bi-check-lg"></i>
+        </div>
+
+        <!-- Heading -->
+        <h1>Thank <span>You!</span></h1>
+
+        <!-- Main Message -->
+        <p>Your project enquiry has been sent successfully.</p>
+
+        <p>
+          Thank you for reaching out to ZIKTECH. I will review your request and
+          get back to you as soon as possible.
+        </p>
+
+        <p class="small-message">
+          I appreciate your interest and look forward to discussing your project
+          with you.
+        </p>
+
+        <!-- Buttons -->
+        <div class="thank-you-buttons">
+          <a href="index.html" class="thank-you-btn primary">
+            <i class="bi bi-house"></i>
+            Back to Home
+          </a>
+
+          <a
+            href="https://wa.me/2349033456447?text=Hello%20ZikTech%2C%20I%20just%20sent%20a%20project%20enquiry."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="thank-you-btn secondary"
+          >
+            <i class="bi bi-whatsapp"></i>
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- Brand -->
+        <div class="thank-you-brand">ZIK<span>TECH</span></div>
+      </div>
+    </main>
+  </body>
+</html>
