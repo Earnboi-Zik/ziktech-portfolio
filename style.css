@@ -664,6 +664,120 @@ ul {
 }
 
 /* =========================================================
+   HERO AUTOMATIC CAROUSEL
+========================================================= */
+
+.hero-carousel {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  margin-left: auto;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.hero-slide.exit-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-slide .hero-image-border {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  overflow: hidden;
+}
+
+.hero-slide .hero-image {
+  display: block;
+  border-radius: 4px;
+}
+
+.hero-slide-caption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  padding: 28px 22px 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+  color: var(--white);
+}
+
+.hero-slide-caption h3 {
+  margin-bottom: 8px;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.hero-slide-caption p {
+  max-width: 360px;
+  color: #d0d0d0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.hero-carousel-indicators {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.hero-carousel-indicators span {
+  width: 22px;
+  height: 4px;
+  border-radius: 5px;
+  background: #555;
+  transition: var(--transition);
+}
+
+.hero-carousel-indicators span.active {
+  width: 38px;
+  background: var(--red);
+}
+
+@media (max-width: 600px) {
+  .hero-carousel {
+    max-width: 100%;
+    margin: 20px auto 0;
+  }
+
+  .hero-slide-caption h3 {
+    font-size: 21px;
+  }
+
+  .hero-slide-caption p {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
    HERO BADGE
 ========================================================= */
 
@@ -2294,5 +2408,146 @@ footer {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   FEATURED PROJECT - BELLANIEL EMPIRE
+========================================================= */
+
+.featured-project {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 55px;
+  padding: 30px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.featured-project-image {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #151719;
+}
+
+.featured-project-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s ease;
+}
+
+.featured-project:hover .featured-project-image img {
+  transform: scale(1.025);
+}
+
+.project-live-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.project-live-label i {
+  color: #28c76f;
+  font-size: 8px;
+}
+
+.featured-project-content {
+  padding: 15px 5px;
+}
+
+.featured-project-content h3 {
+  margin: 15px 0;
+  color: var(--white);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 900;
+}
+
+.featured-project-description {
+  color: var(--muted-dark);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.featured-project-details {
+  display: grid;
+  gap: 18px;
+  margin: 30px 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.featured-project-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.featured-project-details span {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.featured-project-details strong {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .featured-project {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .featured-project-image,
+  .featured-project-image img {
+    min-height: 350px;
+  }
+
+  .featured-project-content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-project {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .featured-project-image,
+  .featured-project-image img {
+    min-height: 250px;
+  }
+
+  .featured-project-content h3 {
+    font-size: 28px;
+  }
+
+  .featured-project-details {
+    margin: 22px 0;
   }
 }

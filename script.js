@@ -330,3 +330,44 @@ console.log(
   "%cPortfolio loaded successfully.",
   "color:#92969d;font-size:11px;",
 );
+
+/* =========================================================
+   ZIKTECH HERO AUTOMATIC CAROUSEL
+========================================================= */
+
+const heroSlides = document.querySelectorAll(".hero-slide");
+
+const heroIndicators = document.querySelectorAll(
+  ".hero-carousel-indicators span",
+);
+
+if (heroSlides.length > 1) {
+  let currentHeroSlide = 0;
+
+  setInterval(function () {
+    const outgoingSlide = heroSlides[currentHeroSlide];
+
+    // Move the current slide out to the left
+    outgoingSlide.classList.remove("active");
+    outgoingSlide.classList.add("exit-left");
+
+    // Select the next slide
+    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+
+    const incomingSlide = heroSlides[currentHeroSlide];
+
+    // Bring the next slide in from the right
+    incomingSlide.classList.remove("exit-left");
+    incomingSlide.classList.add("active");
+
+    // Update the indicators
+    heroIndicators.forEach(function (indicator, index) {
+      indicator.classList.toggle("active", index === currentHeroSlide);
+    });
+
+    // Reset the outgoing slide for the next rotation
+    setTimeout(function () {
+      outgoingSlide.classList.remove("exit-left");
+    }, 900);
+  }, 3000);
+}
