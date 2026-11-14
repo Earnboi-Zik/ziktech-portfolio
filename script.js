@@ -319,7 +319,7 @@ if (contactForm) {
    CONSOLE MESSAGE
 ========================================================= */
 
-console.log("%cZIKTECH", "color:#e01822;font-size:28px;font-weight:900;");
+console.log("%cZIKTECH NG", "color:#e01822;font-size:28px;font-weight:900;");
 
 console.log(
   "%cBuild. Innovate. Elevate.",
